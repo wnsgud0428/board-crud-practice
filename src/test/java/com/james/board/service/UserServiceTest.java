@@ -1,20 +1,20 @@
 package com.james.board.service;
 
-import com.james.board.domain.User;
-import com.james.board.repository.UserRepository;
+import com.james.board.domain.user.User;
+import com.james.board.domain.user.UserService;
+import com.james.board.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
 class UserServiceTest {
 
-    @Autowired UserService userService;
+    @Autowired
+    UserService userService;
     @Autowired UserRepository userRepository;
 
     @Test
@@ -24,7 +24,7 @@ class UserServiceTest {
         newUser.setName("test1");
 
         // when
-        Long newUserId = userService.join(newUser);
+        Long newUserId = userService.createUser(newUser);
 
         // then
         User findUser = userRepository.findById(newUserId).get();
