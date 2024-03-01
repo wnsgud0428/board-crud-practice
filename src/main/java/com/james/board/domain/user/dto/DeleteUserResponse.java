@@ -1,4 +1,4 @@
-package com.james.board.dto;
+package com.james.board.domain.user.dto;
 
 import lombok.Data;
 

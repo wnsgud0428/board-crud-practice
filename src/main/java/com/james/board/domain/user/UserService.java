@@ -1,7 +1,5 @@
-package com.james.board.service;
+package com.james.board.domain.user;
 
-import com.james.board.domain.User;
-import com.james.board.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,25 +14,20 @@ public class UserService {
 
     // 회원 가입
     @Transactional(readOnly = false)
-    public Long join(User user) {
-        User newUser = userRepository.save(user);
+    public Long createUser(User user) {
+        userRepository.save(user);
 
-        return newUser.getId();
+        return user.getId();
     }
 
-
     // 회원 조회
-    public User findOneUser(Long userId) {
-        User findUser = userRepository.findById(userId).get();
-
-        return findUser;
+    public User findUser(Long userId) {
+        return userRepository.findById(userId).get();
     }
 
     // 회원 전체 조회
-    public List<User> findAllUsers() {
-        List<User> all = userRepository.findAll();
-
-        return all;
+    public List<User> getUserList() {
+        return userRepository.findAll();
     }
 
     @Transactional(readOnly = false)

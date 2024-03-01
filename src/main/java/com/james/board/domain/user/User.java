@@ -1,9 +1,13 @@
-package com.james.board.domain;
+package com.james.board.domain.user;
 
+import com.james.board.domain.post.Post;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @Entity
@@ -17,8 +21,8 @@ public class User {
     private int age;
     private Boolean isDeleted = false;
 
-//    @OneToMany(mappedBy = "author")
-//    private List<Post> posts = new ArrayList<>();
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts = new ArrayList<>();
 
 
     public User() {

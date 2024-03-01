@@ -1,6 +1,5 @@
-package com.james.board.repository;
+package com.james.board.domain.user;
 
-import com.james.board.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
